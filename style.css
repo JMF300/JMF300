@@ -5,7 +5,7 @@ body {
     background-color: white;
     color: black;
     transition: background-color 0.3s, color 0.3s;
-    line-height: 1.6; /* Improved line height for readability */
+    line-height: 1.6;
 }
 
 .dark {
@@ -18,8 +18,8 @@ header {
     color: white;
     padding: 1rem;
     text-align: center;
-    border-bottom: 2px solid #555; /* Subtle border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-bottom: 2px solid #555;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
@@ -27,7 +27,7 @@ nav a {
     margin: 0 1rem;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    border-radius: 0.3rem; /* Rounded nav links */
+    border-radius: 0.3rem;
     transition: background-color 0.3s ease;
 }
 
@@ -54,20 +54,31 @@ button#modeToggle:hover {
 
 main {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
 }
 
 section {
-    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent sections */
+    background-color: rgba(255, 255, 255, 0.85); /* Default light background */
     padding: 1.5rem;
     margin-bottom: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.dark section {
+    background-color: rgba(18, 18, 18, 0.85); /* Dark mode background */
+    color: white;
 }
 
 img {
     max-width: 100%;
     margin: 1rem 0;
-    border-radius: 0.5rem; /* Rounded images */
+    border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease;
 }
@@ -78,9 +89,10 @@ img:hover {
 
 form {
     max-width: 300px;
+    width: 100%;
     margin: 2rem auto;
     padding: 1.5rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.85);
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -124,20 +136,19 @@ footer {
     color: white;
     border-top: 2px solid #555;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem; /* Rounded footer */
+    border-radius: 0.5rem;
     margin-top: 2rem;
 }
 
-/* Specific Styles */
 #loginForm a {
-  display: block;
-  text-align: center;
-  margin-top: 1rem;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 #loginForm a:hover {
-  color: #66b3ff;
+    color: #66b3ff;
 }
