@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="light-mode">
-  <main>
-    <h2 style="text-align:center">Sign Up</h2>
-    <form id="signupForm">
-      <input type="text" id="newUsername" placeholder="New Username" required />
-      <input type="password" id="newPassword" placeholder="New Password" required />
-      <button type="submit">Sign Up</button>
-      <p class="error" id="signupError"></p>
-    </form>
-    <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
-  </main>
-  <script src="script.js"></script>
+    <main>
+        <section>
+            <h2 style="text-align: center;">Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="newUsername" placeholder="New Username" required>
+                <input type="password" id="newPassword" placeholder="New Password" required>
+                <button type="submit">Sign Up</button>
+                <p class="error" id="signupError"></p>
+            </form>
+            <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
+        </section>
+    </main>
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        const signupError = document.getElementById('signupError');
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newUsername = document.getElementById('newUsername').value.trim(); // Trim whitespace
+            const newPassword = document.getElementById('newPassword').value.trim(); // Trim whitespace
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+
+            if (users[newUsername]) {
+                signupError.textContent = 'Username already exists.';
+            } else {
+                users[newUsername] = newPassword;
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('loggedIn', 'true');
+                localStorage.setItem('currentUser', newUsername);
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
