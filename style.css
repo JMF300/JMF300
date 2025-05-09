@@ -1,51 +1,143 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: white;
-  color: black;
-  transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6; /* Improved line height for readability */
 }
+
 .dark {
-  background-color: #121212;
-  color: white;
+    background-color: #121212;
+    color: white;
 }
+
 header {
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #555; /* Subtle border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
+
 nav a {
-  color: white;
-  margin: 0 1rem;
-  text-decoration: none;
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem; /* Rounded nav links */
+    transition: background-color 0.3s ease;
 }
+
+nav a:hover {
+    background-color: #555;
+}
+
 button#modeToggle {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
+
+button#modeToggle:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
 main {
-  padding: 2rem;
+    padding: 2rem;
 }
+
+section {
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent sections */
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 img {
-  max-width: 100%;
-  margin: 1rem 0;
+    max-width: 100%;
+    margin: 1rem 0;
+    border-radius: 0.5rem; /* Rounded images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
 }
+
+img:hover {
+    opacity: 0.9;
+}
+
 form {
-  max-width: 300px;
-  margin: 2rem auto;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+    max-width: 300px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 input, button {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    transition: border-color 0.3s ease;
 }
+
+input:focus {
+    border-color: #66b3ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 179, 255, 0.5);
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
 .error {
-  color: red;
+    color: red;
+    margin-top: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border-top: 2px solid #555;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem; /* Rounded footer */
+    margin-top: 2rem;
+}
+
+/* Specific Styles */
+#loginForm a {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#loginForm a:hover {
+  color: #66b3ff;
 }
