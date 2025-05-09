@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Person's Site</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="photos.html">Photos</a>
+      <a href="videos.html">Videos</a>
+      <a href="about.html">About</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+    <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+  <main>
+    <section>
+      <h2>Featured Video</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </section>
+  </main>
+  <footer><p>&copy; 2025 Your Name. All rights reserved.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>

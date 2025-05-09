@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>About Me</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="photos.html">Photos</a>
+      <a href="videos.html">Videos</a>
+      <a href="about.html">About</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+    <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+  <main>
+    <section>
+      <h2>Who is this site about?</h2>
+      <p>This website is dedicated to [Person's Name]. Here’s a short biography:</p>
+      <p>[Person's Name] is a [profession/interest] known for [key accomplishments, traits, or story]. This site showcases their journey through photos, videos, and more.</p>
+    </section>
+  </main>
+  <footer><p>&copy; 2025 Your Name. All rights reserved.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
