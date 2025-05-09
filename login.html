@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    if (localStorage.getItem('loggedIn') === 'true') {
-      window.location.href = 'index.html';
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="light-mode">
-  <main>
-    <h2 style="text-align:center">Login</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Username" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-      <p class="error" id="errorMsg"></p>
-    </form>
-    <p style="text-align:center"><a href="signup.html">Don't have an account? Sign up here</a></p>
-    <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
-  </main>
-  <script src="script.js"></script>
+    <main>
+        <section>
+            <h2 style="text-align: center;">Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p class="error" id="errorMsg"></p>
+            </form>
+            <p style="text-align: center;">
+                <a href="signup.html">Don't have an account? Sign Up</a>
+            </p>
+            <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
+        </section>
+    </main>
+    <script>
+        const form = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('errorMsg');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim(); // Trim whitespace
+            const password = document.getElementById('password').value.trim(); // Trim whitespace
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+
+            if (users[username] === password) {
+                localStorage.setItem('loggedIn', 'true');
+                localStorage.setItem('currentUser', username);
+                window.location.href = 'index.html';
+            } else {
+                errorMsg.textContent = 'Invalid credentials';
+            }
+        });
+
+        // Redirect if already logged in (moved here for better timing)
+        if (localStorage.getItem('loggedIn') === 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
