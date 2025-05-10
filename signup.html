@@ -19,6 +19,11 @@
                 <p class="error" id="signupError"></p>
             </form>
             <button id="modeToggle" aria-label="Toggle Dark Mode">🌙</button>
+            <p style="text-align: center;">
+                <a href="login.html">
+                    <button type="button">Already have an account? Login</button>
+                </a>
+            </p>
         </section>
     </main>
     <script>
@@ -27,8 +32,8 @@
 
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const newUsername = document.getElementById('newUsername').value.trim(); // Trim whitespace
-            const newPassword = document.getElementById('newPassword').value.trim(); // Trim whitespace
+            const newUsername = document.getElementById('newUsername').value.trim(); 
+            const newPassword = document.getElementById('newPassword').value.trim();
             const users = JSON.parse(localStorage.getItem('users') || '{}');
 
             if (users[newUsername]) {

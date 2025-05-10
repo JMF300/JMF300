@@ -30,8 +30,8 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const username = document.getElementById('username').value.trim(); // Trim whitespace
-            const password = document.getElementById('password').value.trim(); // Trim whitespace
+            const username = document.getElementById('username').value.trim(); 
+            const password = document.getElementById('password').value.trim();
             const users = JSON.parse(localStorage.getItem('users') || '{}');
 
             if (users[username] === password) {
@@ -43,7 +43,6 @@
             }
         });
 
-        // Redirect if already logged in (moved here for better timing)
         if (localStorage.getItem('loggedIn') === 'true') {
             window.location.href = 'index.html';
         }
