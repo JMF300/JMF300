@@ -1,5 +1,5 @@
 ## Hi there 👋
-hello
+Hello! This website is currently in beta. If you encounter any errors, please feel free to contact me, and I’ll address them as soon as possible. Thank you for your patience!
 <!--
 **JMF300/JMF300** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
