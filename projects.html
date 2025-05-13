@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,36 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.5s ease;
         }
+
         body.dark-mode {
             background-color: #1a202c;
             color: #f7fafc;
         }
+
         .bg-white {
             transition: background-color 0.5s ease;
         }
+
         .bg-white.dark-mode {
             background-color: #2d3748;
         }
+
         .text-gray-700 {
             transition: color 0.5s ease;
         }
+
         .text-gray-700.dark-mode {
             color: #cbd5e0;
         }
+
         .shadow-md {
             transition: box-shadow 0.5s ease;
         }
+
         .shadow-md.dark-mode {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         .form-control {
             display: block;
             width: 100%;
@@ -45,16 +54,19 @@
             background-color: #fff;
             color: #4a5568;
         }
+
         .form-control.dark-mode {
             background-color: #2d3748;
             color: #f7fafc;
             border-color: #4a5568;
         }
+
         .form-control:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
+
         .btn-primary {
             background-color: #3b82f6;
             color: #fff;
@@ -70,36 +82,56 @@
             align-items: center;
             justify-content: center;
         }
+
         .btn-primary:hover {
             background-color: #2563eb;
             transform: translateY(-2px);
         }
+
         .btn-primary:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
+
         .input-error {
             border-color: #e53e3e !important;
             box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2) !important;
         }
+
         .error-message {
             color: #e53e3e;
             font-size: 0.875rem;
             margin-top: 0.5rem;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         .fade-in {
             animation: fadeIn 0.5s ease;
         }
+
         .slide-in {
             animation: slideIn 0.5s ease-out;
         }
+
         @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Animated Dot Background Styles */
@@ -129,6 +161,7 @@
             0% {
                 transform: translate(0, 0);
             }
+
             100% {
                 transform: translate(50px, 50px);
             }
@@ -138,10 +171,10 @@
             background-color: #888;
             opacity: 0.5;
         }
-
     </style>
 </head>
-<body class="bg-gray-100">
+
+<body class="bg-gray-100 dark-mode:bg-gray-800">
     <div id="background-animation">
         <script>
             for (let i = 0; i < 900; i++) {
@@ -150,10 +183,94 @@
         </script>
     </div>
 
-    <header class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+    <header
+        class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
         <div class="logo text-xl font-bold ml-4">JMF300</div>
         <nav class="mr-4">
             <ul class="flex space-x-4">
                 <li><a href="index.html" class="hover:text-blue-300 no-underline">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
-                <li><a href="projects.html" class="hover:text-
+                <li><a href="projects.html" class="hover:text-blue-300 no-underline">Projects</a></li>
+                <li><a href="contact.html" class="hover:text-blue-300 no-underline">Contact</a></li>
+                <li>
+                    <button id="theme-toggle"
+                        class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
+                        <span id="theme-toggle-icon">Light</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section id="projects-content"
+            class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 dark-mode:text-blue-300">My Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-lg overflow-hidden shadow-md dark-mode:bg-gray-800">
+                    <img src="https://via.placeholder.com/400x200" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark-mode:text-white">Project 1</h3>
+                        <p class="text-gray-700 dark-mode:text-gray-300">Description of Project 1.</p>
+                        <a href="#" class="inline-block mt-2 text-blue-500 hover:underline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-md dark-mode:bg-gray-800">
+                    <img src="https://via.placeholder.com/400x200" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark-mode:text-white">Project 2</h3>
+                        <p class="text-gray-700 dark-mode:text-gray-300">Description of Project 2.</p>
+                        <a href="#" class="inline-block mt-2 text-blue-500 hover:underline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-md dark-mode:bg-gray-800">
+                    <img src="https://via.placeholder.com/400x200" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark-mode:text-white">Project 3</h3>
+                        <p class="text-gray-700 dark-mode:text-gray-300">Description of Project 3.</p>
+                        <a href="#" class="inline-block mt-2 text-blue-500 hover:underline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md dark-mode:bg-gray-900">
+        <p>© 2025 Ethan Lynn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const body = document.body;
+        const localStorageKey = 'theme';
+
+        function toggleTheme() {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                localStorage.setItem(localStorageKey, 'light');
+                themeToggleIcon.textContent = 'Light';
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem(localStorageKey, 'dark');
+                themeToggleIcon.textContent = 'Dark';
+            }
+            const elements = document.querySelectorAll('.bg-white, .text-gray-700, .shadow-md, .form-control');
+            elements.forEach(el => {
+                el.classList.toggle('dark-mode');
+            });
+        }
+
+        const savedTheme = localStorage.getItem(localStorageKey);
+        if (savedTheme === 'dark') {
+            toggleTheme();
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+
+</html>
