@@ -177,4 +177,112 @@
         <nav class="mr-4">
             <ul class="flex space-x-4">
                 <li><a href="index.html" class="hover:text-blue-300 no-underline">Home</a></li>
-                <li><a href="about.html" class="hover:
+                <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
+                <li><a href="contact.html" class="text-blue-300 font-semibold no-underline">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto py-10 px-4 md:px-0">
+        <div class="bg-white shadow-md rounded-md p-8 dark-mode:bg-gray-800">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark-mode:text-gray-100">Contact Me</h2>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
+                    <p class="error-message hidden" id="nameError">Please enter your name.</p>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Your Email">
+                    <p class="error-message hidden" id="emailError">Please enter a valid email address.</p>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Your Message"></textarea>
+                    <p class="error-message hidden" id="messageError">Please enter your message.</p>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+                <div id="form-response" class="mt-4 text-green-500 dark-mode:text-green-400 hidden"></div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-gray-200 text-center py-4 text-sm text-gray-600 dark-mode:bg-gray-800 dark-mode:text-gray-400">
+        &copy; 2025 JMF300 - All Rights Reserved
+    </footer>
+
+    <script>
+        // Basic client-side validation (this won't send emails)
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('name');
+            let email = document.getElementById('email');
+            let message = document.getElementById('message');
+            let nameError = document.getElementById('nameError');
+            let emailError = document.getElementById('emailError');
+            let messageError = document.getElementById('messageError');
+            let isValid = true;
+
+            if (name.value.trim() === '') {
+                name.classList.add('input-error');
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                name.classList.remove('input-error');
+                nameError.classList.add('hidden');
+            }
+
+            if (email.value.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.classList.add('input-error');
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                email.classList.remove('input-error');
+                emailError.classList.add('hidden');
+            }
+
+            if (message.value.trim() === '') {
+                message.classList.add('input-error');
+                messageError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                message.classList.remove('input-error');
+                messageError.classList.add('hidden');
+            }
+
+            if (isValid) {
+                // In a real scenario, you would send the data to a backend service here
+                // For GitHub Pages, you'll need to integrate a third-party form service.
+                document.getElementById('form-response').innerText = 'Form submitted successfully (this is a simulation)!';
+                document.getElementById('form-response').classList.remove('hidden');
+                document.getElementById('contactForm').reset();
+                setTimeout(() => {
+                    document.getElementById('form-response').classList.add('hidden');
+                }, 3000);
+            }
+        });
+
+        // Dark mode toggle (optional, but included in your original styles)
+        function checkDarkMode() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark-mode');
+            } else {
+                document.documentElement.classList.remove('dark-mode');
+            }
+        }
+        checkDarkMode();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkDarkMode);
+
+        // JavaScript to create the animated dot background
+        const backgroundAnimation = document.getElementById('background-animation');
+        for (let i = 0; i < 30 * 30; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.style.animationDelay = `${Math.random() * 5}s`;
+            backgroundAnimation.appendChild(dot);
+        }
+    </script>
+</body>
+
+</html>
