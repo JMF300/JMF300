@@ -185,3 +185,78 @@
                     </button>
                 </li>
             </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section id="about" class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md fade-in">
+            <h2 class="text-2xl font-bold mb-4 text-blue-700 dark-mode:text-blue-300">About Me</h2>
+            <div class="prose max-w-none dark-mode:text-gray-300">
+                <p>Hello! I'm Ethan Lynn, a passionate web developer with a keen interest in creating engaging and
+                    user-friendly web experiences. I thrive on turning ideas into reality through clean, efficient, and
+                    well-structured code.</p>
+
+                <h3>My Skills</h3>
+                <ul class="list-disc pl-5">
+                    <li><strong>Front-End:</strong> HTML, CSS, JavaScript, Tailwind CSS</li>
+                    <li><strong>Version Control:</strong> Git</li>
+                </ul>
+
+                <h3>My Journey</h3>
+                <p>I started my web development journey with a fascination for how websites work. This curiosity led me
+                    to explore various technologies and frameworks, constantly expanding my skill set. I enjoy the
+                    challenge of problem-solving and the satisfaction of seeing a project come to life.</p>
+
+                <h3>What I Offer</h3>
+                <p>I offer a blend of technical expertise and creative thinking. Whether it's crafting a responsive
+                    website, implementing interactive features, or optimizing performance, I'm dedicated to delivering
+                    high-quality solutions.</p>
+
+                <h3>Let's Connect</h3>
+                <p>I'm always open to new opportunities and collaborations. If you have a project in mind or just want to
+                    say hello, feel free to reach out!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md dark-mode:bg-gray-900">
+        <p>© 2025 Ethan Lynn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Efficient dot generation
+        const animationContainer = document.getElementById('background-animation');
+        for (let i = 0; i < 900; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            animationContainer.appendChild(dot);
+        }
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const html = document.documentElement;
+        const localStorageKey = 'theme';
+
+        function toggleTheme() {
+            html.classList.toggle('dark-mode');
+
+            if (html.classList.contains('dark-mode')) {
+                localStorage.setItem(localStorageKey, 'dark');
+                themeToggleIcon.textContent = 'Dark';
+            } else {
+                localStorage.setItem(localStorageKey, 'light');
+                themeToggleIcon.textContent = 'Light';
+            }
+        }
+
+        const savedTheme = localStorage.getItem(localStorageKey);
+        if (savedTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggleIcon.textContent = 'Dark';
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+
+</html>
