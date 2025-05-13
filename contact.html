@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
+    <title>Contact - JMF300</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.5s ease;
+            color: #4a5568; /* Default text color for light mode */
         }
 
-        body.dark-mode {
+        html.dark-mode body {
             background-color: #1a202c;
             color: #f7fafc;
         }
@@ -22,23 +23,15 @@
             transition: background-color 0.5s ease;
         }
 
-        .bg-white.dark-mode {
+        html.dark-mode .bg-white {
             background-color: #2d3748;
-        }
-
-        .text-gray-700 {
-            transition: color 0.5s ease;
-        }
-
-        .text-gray-700.dark-mode {
-            color: #cbd5e0;
         }
 
         .shadow-md {
             transition: box-shadow 0.5s ease;
         }
 
-        .shadow-md.dark-mode {
+        html.dark-mode .shadow-md {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -55,7 +48,7 @@
             color: #4a5568;
         }
 
-        .form-control.dark-mode {
+        html.dark-mode .form-control {
             background-color: #2d3748;
             color: #f7fafc;
             border-color: #4a5568;
@@ -167,14 +160,14 @@
             }
         }
 
-        body.dark-mode #background-animation .dot {
+        html.dark-mode #background-animation .dot {
             background-color: #888;
             opacity: 0.5;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 dark-mode:bg-gray-800">
+<body class="bg-gray-100">
     <div id="background-animation">
         <script>
             for (let i = 0; i < 900; i++) {
@@ -188,100 +181,4 @@
         <div class="logo text-xl font-bold ml-4">JMF300</div>
         <nav class="mr-4">
             <ul class="flex space-x-4">
-                <li><a href="index.html" class="hover:text-blue-300 no-underline">Home</a></li>
-                <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
-                <li><a href="projects.html" class="hover:text-blue-300 no-underline">Projects</a></li>
-                <li><a href="contact.html" class="hover:text-blue-300 no-underline">Contact</a></li>
-                <li>
-                    <button id="theme-toggle"
-                        class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
-                        <span id="theme-toggle-icon">Light</span>
-                    </button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container mx-auto mt-8 p-4">
-        <section class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md">
-            <h2 class="text-2xl font-semibold text-blue-700 mb-4 dark-mode:text-blue-300">Contact Me</h2>
-            <p class="text-gray-700 dark-mode:text-gray-300 mb-4">
-                Have a question, suggestion, or just want to say hello? Feel free to reach out! You can use the form
-                below or connect with me through the following channels:
-            </p>
-            <ul class="list-disc list-inside text-gray-700 dark-mode:text-gray-300 mb-4">
-                <li>Email: <a href="mailto:your.email@example.com"
-                        class="text-blue-500 hover:underline">your.email@example.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank"
-                        class="text-blue-500 hover:underline">linkedin.com/in/yourprofile</a></li>
-                <li>GitHub: <a href="https://github.com/yourusername" target="_blank"
-                        class="text-blue-500 hover:underline">github.com/yourusername</a></li>
-            </ul>
-
-            <div class="mt-6">
-                <h3 class="text-xl font-semibold text-blue-700 mb-2 dark-mode:text-blue-300">Send a Message</h3>
-                <form>
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Name:</label>
-                        <input type="text" id="name"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark-mode:bg-gray-800 dark-mode:border-gray-600 dark-mode:text-white"
-                            placeholder="Your Name">
-                    </div>
-                    <div class="mb-4">
-                        <label for="email"
-                            class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Email:</label>
-                        <input type="email" id="email"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark-mode:bg-gray-800 dark-mode:border-gray-600 dark-mode:text-white"
-                            placeholder="Your Email">
-                    </div>
-                    <div class="mb-6">
-                        <label for="message"
-                            class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Message:</label>
-                        <textarea id="message" rows="5"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark-mode:bg-gray-800 dark-mode:border-gray-600 dark-mode:text-white"
-                            placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send
-                        Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-4 text-center rounded-md dark-mode:bg-gray-900">
-        <p>© 2025 Ethan Lynn. All rights reserved.</p>
-    </footer>
-
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleIcon = document.getElementById('theme-toggle-icon');
-        const body = document.body;
-        const localStorageKey = 'theme';
-
-        function toggleTheme() {
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                localStorage.setItem(localStorageKey, 'light');
-                themeToggleIcon.textContent = 'Light';
-            } else {
-                body.classList.add('dark-mode');
-                localStorage.setItem(localStorageKey, 'dark');
-                themeToggleIcon.textContent = 'Dark';
-            }
-            const elements = document.querySelectorAll('.bg-white, .text-gray-700, .shadow-md, .form-control');
-            elements.forEach(el => {
-                el.classList.toggle('dark-mode');
-            });
-        }
-
-        const savedTheme = localStorage.getItem(localStorageKey);
-        if (savedTheme === 'dark') {
-            toggleTheme();
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-    </script>
-</body>
-
-</html>
+                <li><a href="index.html"
