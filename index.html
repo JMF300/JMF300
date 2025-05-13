@@ -10,6 +10,8 @@
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.5s ease;
+            background-color: #f9fafb;
+            color: #333;
         }
         body.dark-mode {
             background-color: #1a202c;
@@ -17,12 +19,14 @@
         }
         .bg-white {
             transition: background-color 0.5s ease;
+            background-color: #fff;
         }
         .bg-white.dark-mode {
             background-color: #2d3748;
         }
         .text-gray-700 {
             transition: color 0.5s ease;
+            color: #444;
         }
         .text-gray-700.dark-mode {
             color: #cbd5e0;
@@ -43,7 +47,7 @@
             font-size: 1rem;
             line-height: 1.5rem;
             background-color: #fff;
-            color: #4a5568;
+            color: #333;
         }
         .form-control.dark-mode {
             background-color: #2d3748;
@@ -141,8 +145,7 @@
 
     </style>
 </head>
-<body class="bg-gray-100">
-    <div id="background-animation">
+<body class="bg-gray-100">  <div id="background-animation">
         <script>
             for (let i = 0; i < 900; i++) {
                 document.write('<div class="dot"></div>');
