@@ -171,10 +171,97 @@
 <body class="bg-gray-100">
     <div id="background-animation"></div>
 
-    <header class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+    <header
+        class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
         <div class="logo text-xl font-bold ml-4">JMF300</div>
         <nav class="mr-4">
             <ul class="flex space-x-4">
                 <li><a href="index.html" class="hover:text-blue-300 no-underline">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
-                <li><a href="
+                <li><a href="projects.html" class="hover:text-blue-300 no-underline">Projects</a></li>
+                <li><a href="contact.html" class="hover:text-blue-300 no-underline">Contact</a></li>
+                <li>
+                    <button id="theme-toggle"
+                        class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
+                        <span id="theme-toggle-icon">Light</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4">
+        <section id="hero" class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md fade-in">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2">
+                    <h1 class="text-3xl font-bold text-blue-700 dark-mode:text-blue-300 mb-4">Welcome to My Portfolio</h1>
+                    <p class="text-gray-700 dark-mode:text-gray-300 mb-6">I'm passionate about creating exceptional web
+                        experiences. Explore my projects and learn more about my skills.</p>
+                    <a href="projects.html"
+                        class="btn-primary">View My Work</a>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0">
+                    <img src="placeholder-image.jpg" alt="Developer illustration"
+                        class="w-full rounded-lg shadow-md dark-mode:opacity-80">
+                </div>
+            </div>
+        </section>
+
+        <section id="about-preview"
+            class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md mt-8 slide-in">
+            <h2 class="text-2xl font-bold text-blue-700 dark-mode:text-blue-300 mb-4">About Me</h2>
+            <p class="text-gray-700 dark-mode:text-gray-300">A brief introduction about myself and my journey as a web
+                developer...</p>
+            <a href="about.html" class="text-blue-500 hover:underline">Learn More</a>
+        </section>
+
+        <section id="contact-preview"
+            class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md mt-8 slide-in">
+            <h2 class="text-2xl font-bold text-blue-700 dark-mode:text-blue-300 mb-4">Get In Touch</h2>
+            <p class="text-gray-700 dark-mode:text-gray-300">I'm always open to new opportunities and collaborations. Feel
+                free to reach out!</p>
+            <a href="contact.html" class="text-blue-500 hover:underline">Contact Me</a>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md dark-mode:bg-gray-900">
+        <p>© 2025 Ethan Lynn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Efficient dot generation
+        const animationContainer = document.getElementById('background-animation');
+        for (let i = 0; i < 900; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            animationContainer.appendChild(dot);
+        }
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const html = document.documentElement;
+        const localStorageKey = 'theme';
+
+        function toggleTheme() {
+            html.classList.toggle('dark-mode');
+
+            if (html.classList.contains('dark-mode')) {
+                localStorage.setItem(localStorageKey, 'dark');
+                themeToggleIcon.textContent = 'Dark';
+            } else {
+                localStorage.setItem(localStorageKey, 'light');
+                themeToggleIcon.textContent = 'Light';
+            }
+        }
+
+        const savedTheme = localStorage.getItem(localStorageKey);
+        if (savedTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggleIcon.textContent = 'Dark';
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+
+</html>
