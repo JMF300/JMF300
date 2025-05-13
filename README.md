@@ -1,5 +1,5 @@
 ## Hi there 👋
-Welcome to the beta version of our website! We're excited to share our progress and are continuously working on new features and enhancements. As part of this testing phase, your input is invaluable. Should you encounter any bugs, errors, or unexpected behavior, please don't hesitate to inform us. Your feedback acts as a vital guide, helping us shape a superior experience for everyone. We're committed to addressing any issues promptly, and we deeply value your collaboration and understanding during the development of this website.
+Welcome to the beta version of my website! I am excited to share our progress and are continuously working on new features and enhancements. As part of this testing phase, your input is invaluable. Should you encounter any bugs, errors, or unexpected behavior, please don't hesitate to inform me. Your feedback acts as a vital guide, helping me shape a superior experience for everyone. I am committed to addressing any issues promptly, and I deeply value your collaboration and understanding during the development of this website.
 <!--
 **JMF300/JMF300** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
