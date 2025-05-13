@@ -169,8 +169,7 @@
 </head>
 
 <body class="bg-gray-100">
-    <div id="background-animation">
-    </div>
+    <div id="background-animation"></div>
 
     <header class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
         <div class="logo text-xl font-bold ml-4">JMF300</div>
@@ -178,110 +177,77 @@
             <ul class="flex space-x-4">
                 <li><a href="index.html" class="hover:text-blue-300 no-underline">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
-                <li><a href="contact.html" class="text-blue-300 font-semibold no-underline">Contact</a></li>
+                <li><a href="projects.html" class="hover:text-blue-300 no-underline">Projects</a></li>
+                <li><a href="contact.html" class="hover:text-blue-300 no-underline">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
+                        <span id="theme-toggle-icon">Light</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <main class="container mx-auto py-10 px-4 md:px-0">
-        <div class="bg-white shadow-md rounded-md p-8 dark-mode:bg-gray-800">
-            <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark-mode:text-gray-100">Contact Me</h2>
-            <form id="contactForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
-                    <p class="error-message hidden" id="nameError">Please enter your name.</p>
+    <main class="container mx-auto mt-8 p-4">
+        <section id="contact" class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md fade-in">
+            <h2 class="text-2xl font-bold mb-4 text-blue-700 dark-mode:text-blue-300">Contact Me</h2>
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700 dark-mode:text-gray-300">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Your Email">
-                    <p class="error-message hidden" id="emailError">Please enter a valid email address.</p>
+                <div>
+                    <label for="email" class="block text-gray-700 dark-mode:text-gray-300">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Message</label>
-                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Your Message"></textarea>
-                    <p class="error-message hidden" id="messageError">Please enter your message.</p>
+                <div>
+                    <label for="message" class="block text-gray-700 dark-mode:text-gray-300">Your Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="btn-primary">Send Message</button>
-                <div id="form-response" class="mt-4 text-green-500 dark-mode:text-green-400 hidden"></div>
+                <div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </div>
             </form>
-        </div>
+        </section>
     </main>
 
-    <footer class="bg-gray-200 text-center py-4 text-sm text-gray-600 dark-mode:bg-gray-800 dark-mode:text-gray-400">
-        &copy; 2025 JMF300 - All Rights Reserved
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md dark-mode:bg-gray-900">
+        <p>© 2025 Ethan Lynn. All rights reserved.</p>
     </footer>
 
     <script>
-        // Basic client-side validation (this won't send emails)
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            let name = document.getElementById('name');
-            let email = document.getElementById('email');
-            let message = document.getElementById('message');
-            let nameError = document.getElementById('nameError');
-            let emailError = document.getElementById('emailError');
-            let messageError = document.getElementById('messageError');
-            let isValid = true;
-
-            if (name.value.trim() === '') {
-                name.classList.add('input-error');
-                nameError.classList.remove('hidden');
-                isValid = false;
-            } else {
-                name.classList.remove('input-error');
-                nameError.classList.add('hidden');
-            }
-
-            if (email.value.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-                email.classList.add('input-error');
-                emailError.classList.remove('hidden');
-                isValid = false;
-            } else {
-                email.classList.remove('input-error');
-                emailError.classList.add('hidden');
-            }
-
-            if (message.value.trim() === '') {
-                message.classList.add('input-error');
-                messageError.classList.remove('hidden');
-                isValid = false;
-            } else {
-                message.classList.remove('input-error');
-                messageError.classList.add('hidden');
-            }
-
-            if (isValid) {
-                // In a real scenario, you would send the data to a backend service here
-                // For GitHub Pages, you'll need to integrate a third-party form service.
-                document.getElementById('form-response').innerText = 'Form submitted successfully (this is a simulation)!';
-                document.getElementById('form-response').classList.remove('hidden');
-                document.getElementById('contactForm').reset();
-                setTimeout(() => {
-                    document.getElementById('form-response').classList.add('hidden');
-                }, 3000);
-            }
-        });
-
-        // Dark mode toggle (optional, but included in your original styles)
-        function checkDarkMode() {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark-mode');
-            } else {
-                document.documentElement.classList.remove('dark-mode');
-            }
-        }
-        checkDarkMode();
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkDarkMode);
-
-        // JavaScript to create the animated dot background
-        const backgroundAnimation = document.getElementById('background-animation');
-        for (let i = 0; i < 30 * 30; i++) {
+        // Efficient dot generation
+        const animationContainer = document.getElementById('background-animation');
+        for (let i = 0; i < 900; i++) {
             const dot = document.createElement('div');
             dot.classList.add('dot');
-            dot.style.animationDelay = `${Math.random() * 5}s`;
-            backgroundAnimation.appendChild(dot);
+            animationContainer.appendChild(dot);
         }
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const html = document.documentElement;
+        const localStorageKey = 'theme';
+
+        function toggleTheme() {
+            html.classList.toggle('dark-mode');
+
+            if (html.classList.contains('dark-mode')) {
+                localStorage.setItem(localStorageKey, 'dark');
+                themeToggleIcon.textContent = 'Dark';
+            } else {
+                localStorage.setItem(localStorageKey, 'light');
+                themeToggleIcon.textContent = 'Light';
+            }
+        }
+
+        const savedTheme = localStorage.getItem(localStorageKey);
+        if (savedTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggleIcon.textContent = 'Dark';
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
     </script>
 </body>
 
