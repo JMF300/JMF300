@@ -133,4 +133,137 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 10
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            display: grid;
+            grid-template-columns: repeat(30, 1fr);
+            grid-template-rows: repeat(30, 1fr);
+        }
+
+        .dot {
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: moveDot 5s linear infinite;
+        }
+
+        @keyframes moveDot {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        html.dark-mode #background-animation .dot {
+            background-color: #888;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div id="background-animation"></div>
+
+    <header
+        class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+        <div class="logo text-xl font-bold ml-4">JMF300</div>
+        <nav class="mr-4">
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-blue-300 no-underline">Home</a></li>
+                <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
+                <li><a href="projects.html" class="hover:text-blue-300 no-underline">Projects</a></li>
+                <li><a href="contact.html" class="hover:text-blue-300 no-underline">Contact</a></li>
+                <li>
+                    <button id="theme-toggle"
+                        class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
+                        <span id="theme-toggle-icon">Light</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 p-4 fade-in">
+        <section class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+            <h2 class="text-2xl font-bold text-blue-700 dark-mode:text-blue-300 mb-4">About Me</h2>
+            <p class="text-gray-700 dark-mode:text-gray-300 mb-4">Hello! My name is [Your Name], and I'm a passionate web
+                developer with a focus on creating user-friendly and visually appealing websites and applications. I've
+                been coding for [Number] years and have a strong understanding of front-end technologies like HTML, CSS,
+                and JavaScript, as well as experience with frameworks such as Tailwind CSS.</p>
+
+            <p class="text-gray-700 dark-mode:text-gray-300 mb-4">My journey into web development began with a curiosity
+                for how websites are built and how the internet connects us all. This curiosity quickly turned into a
+                passion for problem-solving through code and designing intuitive user interfaces.</p>
+
+            <h3 class="text-xl font-semibold text-blue-700 dark-mode:text-blue-300 mt-6 mb-2">Skills</h3>
+            <ul class="list-disc list-inside text-gray-700 dark-mode:text-gray-300 mb-4">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Tailwind CSS</li>
+                <li>[Add any other relevant skills, e.g., React, Vue.js, Node.js, etc.]</li>
+                <li>[Add any other relevant skills]</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-blue-700 dark-mode:text-blue-300 mt-6 mb-2">Experience</h3>
+            <p class="text-gray-700 dark-mode:text-gray-300 mb-4">Currently, I am [Your Current Role/Status, e.g., a
+                freelance web developer, working on personal projects, seeking new opportunities]. In the past, I have
+                [Mention any relevant past experiences or projects briefly].</p>
+
+            <p class="text-gray-700 dark-mode:text-gray-300 mb-4">I am always eager to learn new technologies and improve
+                my skills. The ever-evolving landscape of web development keeps me engaged and motivated to stay
+                up-to-date with the latest trends and best practices.</p>
+
+            <p class="text-gray-700 dark-mode:text-gray-300">Thank you for taking the time to learn a bit about me.
+                Please feel free to explore my projects or get in touch if you have any questions or opportunities!</p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center rounded-md dark-mode:bg-gray-900 mt-8">
+        <p>© 2025 Ethan Lynn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Efficient dot generation
+        const animationContainer = document.getElementById('background-animation');
+        for (let i = 0; i < 900; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            animationContainer.appendChild(dot);
+        }
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const html = document.documentElement;
+        const localStorageKey = 'theme';
+
+        function toggleTheme() {
+            html.classList.toggle('dark-mode');
+
+            if (html.classList.contains('dark-mode')) {
+                localStorage.setItem(localStorageKey, 'dark');
+                themeToggleIcon.textContent = 'Dark';
+            } else {
+                localStorage.setItem(localStorageKey, 'light');
+                themeToggleIcon.textContent = 'Light';
+            }
+        }
+
+        const savedTheme = localStorage.getItem(localStorageKey);
+        if (savedTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggleIcon.textContent = 'Dark';
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+
+</html>
