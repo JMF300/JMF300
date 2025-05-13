@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,28 +12,36 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.5s ease;
         }
+
         body.dark-mode {
             background-color: #1a202c;
             color: #f7fafc;
         }
+
         .bg-white {
             transition: background-color 0.5s ease;
         }
+
         .bg-white.dark-mode {
             background-color: #2d3748;
         }
+
         .text-gray-700 {
             transition: color 0.5s ease;
         }
+
         .text-gray-700.dark-mode {
             color: #cbd5e0;
         }
+
         .shadow-md {
             transition: box-shadow 0.5s ease;
         }
+
         .shadow-md.dark-mode {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         .form-control {
             display: block;
             width: 100%;
@@ -45,16 +54,19 @@
             background-color: #fff;
             color: #4a5568;
         }
+
         .form-control.dark-mode {
             background-color: #2d3748;
             color: #f7fafc;
             border-color: #4a5568;
         }
+
         .form-control:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
+
         .btn-primary {
             background-color: #3b82f6;
             color: #fff;
@@ -70,41 +82,109 @@
             align-items: center;
             justify-content: center;
         }
+
         .btn-primary:hover {
             background-color: #2563eb;
             transform: translateY(-2px);
         }
+
         .btn-primary:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
+
         .input-error {
             border-color: #e53e3e !important;
             box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2) !important;
         }
+
         .error-message {
             color: #e53e3e;
             font-size: 0.875rem;
             margin-top: 0.5rem;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         .fade-in {
             animation: fadeIn 0.5s ease;
         }
+
         .slide-in {
             animation: slideIn 0.5s ease-out;
         }
+
         @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Animated Dot Background Styles */
+        #background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            display: grid;
+            grid-template-columns: repeat(30, 1fr);
+            grid-template-rows: repeat(30, 1fr);
+        }
+
+        .dot {
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: moveDot 5s linear infinite;
+        }
+
+        @keyframes moveDot {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        body.dark-mode #background-animation .dot {
+            background-color: #888;
+            opacity: 0.5;
         }
     </style>
 </head>
+
 <body class="bg-gray-100 dark-mode:bg-gray-800">
-    <header class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+    <div id="background-animation">
+        <script>
+            for (let i = 0; i < 900; i++) {
+                document.write('<div class="dot"></div>');
+            }
+        </script>
+    </div>
+
+    <header
+        class="bg-blue-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md dark-mode:bg-gray-700 dark-mode:shadow-md">
         <div class="logo text-xl font-bold ml-4">JMF300</div>
         <nav class="mr-4">
             <ul class="flex space-x-4">
@@ -112,8 +192,9 @@
                 <li><a href="about.html" class="hover:text-blue-300 no-underline">About</a></li>
                 <li><a href="projects.html" class="hover:text-blue-300 no-underline">Projects</a></li>
                 <li><a href="contact.html" class="hover:text-blue-300 no-underline">Contact</a></li>
-                 <li>
-                    <button id="theme-toggle" class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
+                <li>
+                    <button id="theme-toggle"
+                        class="bg-gray-700 text-white px-3 py-1 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 dark-mode:bg-white dark-mode:text-gray-700 dark-mode:hover:bg-gray-100">
                         <span id="theme-toggle-icon">Light</span>
                     </button>
                 </li>
@@ -122,24 +203,48 @@
     </header>
 
     <main class="container mx-auto mt-8 p-4">
-        <section id="contact-content" class="bg-white p-6 rounded-lg shadow-md text-center dark-mode:bg-gray-700 dark-mode:shadow-md">
-            <h2 class="text-2xl font-semibold text-blue-700 mb-4 dark-mode:text-blue-300 fade-in">Contact Me</h2>
-            <p class="text-gray-700 text-lg mb-4 dark-mode:text-gray-300">Email: lynnethan@gmail.com</p>
-            <p class="text-gray-700 text-lg mb-6 dark-mode:text-gray-300">Phone: +123 456 7890</p>
-             <form id="contact-form" class="mt-8 flex flex-col items-center space-y-4 slide-in">
-                <input type="text" id="name" placeholder="Your Name" class="form-control dark-mode:form-control" >
-                <div id="name-error" class="error-message" style="display: none;"></div>
-                <input type="email" id="email" placeholder="Your Email" class="form-control dark-mode:form-control" >
-                 <div id="email-error" class="error-message" style="display: none;"></div>
-                <textarea id="message" placeholder="Your Message" class="form-control dark-mode:form-control"></textarea>
-                 <div id="message-error" class="error-message" style="display: none;"></div>
-                <button type="submit" class="btn-primary" id="submit-button">Send Message</button>
-            </form>
-            <div id="success-message" class="mt-6 text-green-500 font-semibold text-lg" style="display: none;">
-                Thank you for your message!
-            </div>
-            <div id="error-message" class="mt-6 text-red-500 font-semibold text-lg" style="display: none;">
-                Sorry, there was an error sending your message. Please try again.
+        <section class="bg-white p-6 rounded-lg shadow-md dark-mode:bg-gray-700 dark-mode:shadow-md">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4 dark-mode:text-blue-300">Contact Me</h2>
+            <p class="text-gray-700 dark-mode:text-gray-300 mb-4">
+                Have a question, suggestion, or just want to say hello? Feel free to reach out! You can use the form
+                below or connect with me through the following channels:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 dark-mode:text-gray-300 mb-4">
+                <li>Email: <a href="mailto:your.email@example.com"
+                        class="text-blue-500 hover:underline">your.email@example.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank"
+                        class="text-blue-500 hover:underline">linkedin.com/in/yourprofile</a></li>
+                <li>GitHub: <a href="https://github.com/yourusername" target="_blank"
+                        class="text-blue-500 hover:underline">github.com/yourusername</a></li>
+            </ul>
+
+            <div class="mt-6">
+                <h3 class="text-xl font-semibold text-blue-700 mb-2 dark-mode:text-blue-300">Send a Message</h3>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Name:</label>
+                        <input type="text" id="name"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark-mode:bg-gray-800 dark-mode:border-gray-600 dark-mode:text-white"
+                            placeholder="Your Name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email"
+                            class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Email:</label>
+                        <input type="email" id="email"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark-mode:bg-gray-800 dark-mode:border-gray-600 dark-mode:text-white"
+                            placeholder="Your Email">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message"
+                            class="block text-gray-700 text-sm font-bold mb-2 dark-mode:text-gray-300">Message:</label>
+                        <textarea id="message" rows="5"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark-mode:bg-gray-800 dark-mode:border-gray-600 dark-mode:text-white"
+                            placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send
+                        Message</button>
+                </form>
             </div>
         </section>
     </main>
@@ -152,58 +257,7 @@
         const themeToggle = document.getElementById('theme-toggle');
         const themeToggleIcon = document.getElementById('theme-toggle-icon');
         const body = document.body;
-        const contactForm = document.getElementById('contact-form');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        const nameError = document.getElementById('name-error');
-        const emailError = document.getElementById('email-error');
-        const messageError = document.getElementById('message-error');
-        const successMessage = document.getElementById('success-message');
-        const errorMessageElement = document.getElementById('error-message');
         const localStorageKey = 'theme';
-
-        function validateName() {
-            if (!nameInput.value.trim()) {
-                nameError.textContent = 'Please enter your name.';
-                nameError.style.display = 'block';
-                nameInput.classList.add('input-error');
-                return false;
-            }
-            nameError.style.display = 'none';
-            nameInput.classList.remove('input-error');
-            return true;
-        }
-
-        function validateEmail() {
-            const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-            if (!emailInput.value.trim()) {
-                emailError.textContent = 'Please enter your email address.';
-                emailError.style.display = 'block';
-                emailInput.classList.add('input-error');
-                return false;
-            } else if (!emailRegex.test(emailInput.value.trim())) {
-                emailError.textContent = 'Please enter a valid email address.';
-                emailError.style.display = 'block';
-                emailInput.classList.add('input-error');
-                return false;
-            }
-            emailError.style.display = 'none';
-            emailInput.classList.remove('input-error');
-            return true;
-        }
-
-        function validateMessage() {
-            if (!messageInput.value.trim()) {
-                messageError.textContent = 'Please enter your message.';
-                messageError.style.display = 'block';
-                messageInput.classList.add('input-error');
-                return false;
-            }
-            messageError.style.display = 'none';
-            messageInput.classList.remove('input-error');
-            return true;
-        }
 
         function toggleTheme() {
             if (body.classList.contains('dark-mode')) {
@@ -227,45 +281,7 @@
         }
 
         themeToggle.addEventListener('click', toggleTheme);
-
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            let isNameValid = validateName();
-            let isEmailValid = validateEmail();
-            let isMessageValid = validateMessage();
-
-            if (isNameValid && isEmailValid && isMessageValid) {
-                // Simulate form submission
-                console.log('Form submitted with data:');
-                console.log('Name:', nameInput.value);
-                console.log('Email:', emailInput.value);
-                console.log('Message:', messageInput.value);
-
-                // Simulate success message
-                successMessage.style.display = 'block';
-                errorMessageElement.style.display = 'none';
-
-                // Clear the form
-                nameInput.value = '';
-                emailInput.value = '';
-                messageInput.value = '';
-
-                 setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 3000);
-
-            } else {
-                errorMessageElement.style.display = 'block';
-                setTimeout(() => {
-                    errorMessageElement.style.display = 'none';
-                }, 3000);
-            }
-        });
-
-        nameInput.addEventListener('input', validateName);
-        emailInput.addEventListener('input', validateEmail);
-        messageInput.addEventListener('input', validateMessage);
     </script>
 </body>
+
 </html>
